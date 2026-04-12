@@ -1,18 +1,15 @@
-## Hi I'm Riley 
+## Riley Oest | ML Systems Developer
 
-<!--
-**roest1/roest1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+[rileyoest13@gmail.com](mailto:rileyoest13@gmail.com) · [LinkedIn ↗](https://linkedin.com/in/rileyoest)
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+I focus on the intersection of math, industrial data, and software systems. I spent my time at LSU (2020–2024) bridging Data Science and Mathematics to understand the mechanics behind neural networks, rather than just treating them as "black boxes."
 
-- todo
+### My Role at @codegig-br
+
+I am responsible for the end-to-end machine learning lifecycle, which includes building robust ingestion logic for industrial data, designing and evaluating models for specific user needs, and developing the backend logic to deliver real-time inference.
+
+### My Approach
+
+I take the lead on the mathematical and neural network components of our systems, but I work as a collaborative part of the development team. My focus is on ensuring that the intelligence I build follows established best practices, integrates cleanly with our broader platform, and remains stable in production environments. I am currently focused on researching more resilient infrastructure solutions to ensure our deployments scale alongside the data.
