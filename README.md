@@ -1,12 +1,12 @@
-## Riley Oest | ML Systems Developer
+# Riley Oest | ML Systems Developer
 
-[rileyoest13@gmail.com](mailto:rileyoest13@gmail.com) · [LinkedIn ↗](https://linkedin.com/in/rileyoest)
+[rileyoest13@gmail.com](mailto:rileyoest13@gmail.com) • [LinkedIn ↗](https://linkedin.com/in/rileyoest)
 
 ---
 
 I focus on the intersection of math, industrial data, and software systems. I spent my time at LSU (2020–2024) bridging Data Science and Mathematics to understand the mechanics behind neural networks, rather than just treating them as "black boxes."
 
-### My Role at @codegig-br
+### My Role at [@codegig-br](https://github.com/codegig-br)
 
 I am responsible for the end-to-end machine learning lifecycle, which includes building robust ingestion logic for industrial data, designing and evaluating models for specific user needs, and developing the backend logic to deliver real-time inference.
 
