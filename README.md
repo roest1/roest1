@@ -1,7 +1,5 @@
 # Riley Oest | ML Systems Developer
 
-[rileyoest13@gmail.com](mailto:rileyoest13@gmail.com) • [LinkedIn ↗](https://linkedin.com/in/rileyoest)
-
 ---
 
 I focus on the intersection of math, industrial data, and software systems. I spent my time at LSU (2020–2024) bridging Data Science and Mathematics to understand the mechanics behind neural networks, rather than just treating them as "black boxes."
