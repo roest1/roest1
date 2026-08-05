@@ -215,8 +215,7 @@ def aggregate(repos, login):
                 entry["private_repos"] += 1
             if not full.startswith(f"{login}/"):
                 entry["org_repos"] += 1
-            if repo["pushedAt"] > entry["last_push"]:
-                entry["last_push"] = repo["pushedAt"]
+            entry["last_push"] = max(entry["last_push"], repo["pushedAt"])
 
     # Breadth first, size only as a tie-breaker. Bytes alone would crown C#
     # (6.3 MB, one repo) over Python (2.9 MB, twenty repos) -- a ranking that
@@ -226,8 +225,6 @@ def aggregate(repos, login):
         "login": login,
         "languages": ranked,
         "repos_counted": len(counted),
-        "private_counted": sum(1 for r in counted if r["private"]),
-        "org_counted": sum(1 for r in counted if r["org"]),
         "sources": counted,
     }
 
@@ -258,7 +255,6 @@ def main():
 
     print(
         f"{result['repos_counted']} repos "
-        f"({result['private_counted']} private, {result['org_counted']} org) "
         f"-> {len(result['languages'])} languages",
         file=sys.stderr,
     )

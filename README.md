@@ -4,4 +4,4 @@
 
 ![Most used languages](cards/top-langs.svg)
 
-<sub>Generated daily from every repo I work in. Ranked by how many projects use a language, not by file size. [How it works](scripts/collect.py)</sub>
+<sub>[See how this chart works](scripts/collect.py)</sub>

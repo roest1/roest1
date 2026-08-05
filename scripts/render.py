@@ -35,7 +35,6 @@ CSS = """
   .sub   { font: 400 11.5px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--dim); }
   .name  { font: 500 13px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--text); }
   .meta  { font: 400 12px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--dim); }
-  .foot  { font: 400 10px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--dim); }
   .track { fill: var(--track); }
   /* No opacity:0 in the base rules, and animation-fill-mode: both rather
      than forwards. `both` still hides each row through its delay, but a
@@ -59,12 +58,11 @@ def esc(text):
 def render(data):
     langs = data["languages"][:TOP_N]
     top = max((lang["repos"] for lang in langs), default=1)
-    height = 68 + ROW_H * len(langs) + 30
+    # 68 above the first row, then the rows, then a bottom margin that matches
+    # the side padding. The old footer line used to occupy that band.
+    height = 68 + ROW_H * len(langs) + 12
 
-    subtitle = (
-        f"ranked by projects, not bytes · {data['repos_counted']} repos · "
-        f"{data['private_counted']} private · {data['org_counted']} org"
-    )
+    subtitle = f"ranked by projects, not bytes · {data['repos_counted']} repos"
 
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
@@ -101,13 +99,7 @@ def render(data):
             "</g>",
         ]
 
-    out += [
-        f'<text class="foot fade" x="{PAD}" y="{height - 14}" '
-        f'style="animation-delay:{0.18 + len(langs) * 0.09:.2f}s">'
-        "counts public, private, and org repos · excludes markup, config, "
-        "and notebook files</text>",
-        "</svg>",
-    ]
+    out += ["</svg>"]
     return "\n".join(out)
 
 
