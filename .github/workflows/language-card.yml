@@ -1,0 +1,54 @@
+name: Language card
+
+on:
+  schedule:
+    # Daily. Hourly would just churn commits -- these numbers move slowly.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/language-card.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: language-card
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # STATS_TOKEN must be a PAT with `repo` + `read:org`. The built-in
+      # secrets.GITHUB_TOKEN is scoped to this repo alone -- it would return a
+      # public-only answer without erroring, which is the exact failure this
+      # card exists to avoid.
+      - name: Collect language data
+        env:
+          GH_STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+        run: python scripts/collect.py
+
+      - name: Render card
+        run: python scripts/render.py
+
+      # Only the SVG is committed. data/languages.json names private repos and
+      # is gitignored -- see .gitignore.
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards/top-langs.svg
+          if git diff --staged --quiet; then
+            echo "card unchanged"
+          else
+            git commit -m "chore: refresh language card"
+            git push
+          fi

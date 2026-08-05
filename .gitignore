@@ -1,0 +1,7 @@
+# Never commit this. It lists every repo counted, by name -- including
+# private repos and private org names. This profile repo is public.
+# Only cards/top-langs.svg gets published, and that holds counts alone.
+data/
+
+__pycache__/
+*.pyc
