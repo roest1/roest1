@@ -39,13 +39,14 @@ jobs:
       - name: Render card
         run: python scripts/render.py
 
-      # Only the SVG is committed. data/languages.json names private repos and
-      # is gitignored -- see .gitignore.
+      # Only the SVGs are committed. data/languages.json names private repos
+      # and is gitignored -- see .gitignore. `git add cards/` rather than a
+      # named file: render.py emits one card per theme.
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cards/top-langs.svg
+          git add cards/
           if git diff --staged --quiet; then
             echo "card unchanged"
           else

@@ -1,11 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="540" height="320" viewBox="0 0 540 320" role="img" aria-label="Most used languages, ranked by number of projects">
 <style>
-  svg { --bg:#0d1117; --edge:#30363d; --title:#e6edf3; --text:#c9d1d9;
-        --dim:#8b949e; --track:#21262d; }
-  @media (prefers-color-scheme: light) {
-    svg { --bg:#ffffff; --edge:#d0d7de; --title:#1f2328; --text:#1f2328;
-          --dim:#59636e; --track:#eaeef2; }
-  }
+  svg { --bg:#0d1117; --edge:#30363d; --title:#e6edf3; --text:#c9d1d9; --dim:#8b949e; --track:#21262d; }
   .card  { fill: var(--bg); stroke: var(--edge); }
   .title { font: 600 17px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--title); }
   .sub   { font: 400 11.5px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--dim); }

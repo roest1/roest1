@@ -5,9 +5,22 @@ Bars animate with SMIL (<animate> on width) and rows fade in with CSS
 keyframes. Both survive GitHub's image proxy; JavaScript would not, so
 there is none here.
 
-Theme: styles default to dark and flip under prefers-color-scheme: light.
-Dark is the default on purpose -- if a browser doesn't resolve the media
-query, a dark card is the one that still looks deliberate on GitHub.
+Theme: two files, one per theme, each with a locked palette and no media
+query. The card used to be a single SVG that flipped under
+prefers-color-scheme: light, but a media query inside an SVG loaded through
+<img> -- which is how GitHub serves README images -- never matches in WebKit
+(bug 199134). The GitHub mobile app and Safari resolved it to light and drew
+a white card while Chrome and Firefox drew a dark one.
+
+So theme selection moves out of the SVG and into the README, which picks a
+file via GitHub's #gh-dark-mode-only / #gh-light-mode-only fragments. Those
+are GitHub-only and older than the <picture> element, but <picture> is still
+unsupported in the mobile apps -- it renders no image at all there -- which
+is the one client this whole change exists to fix.
+
+One behaviour change worth knowing: the fragments follow the viewer's GitHub
+theme setting, where the old media query followed their OS. The card now
+matches the page around it rather than the system.
 """
 
 import json
@@ -23,13 +36,21 @@ BAR_H = 8
 COUNT_X = WIDTH - PAD  # right edge of the "N repos" column
 MIN_BAR = 6  # so a one-repo language is still visibly a bar
 
-CSS = """
-  svg { --bg:#0d1117; --edge:#30363d; --title:#e6edf3; --text:#c9d1d9;
-        --dim:#8b949e; --track:#21262d; }
-  @media (prefers-color-scheme: light) {
-    svg { --bg:#ffffff; --edge:#d0d7de; --title:#1f2328; --text:#1f2328;
-          --dim:#59636e; --track:#eaeef2; }
-  }
+# Same six roles per theme, so the rules below never need to know which one
+# they got. Kept as data rather than two CSS blobs -- a palette tweak is then
+# a one-line edit that cannot leave the themes structurally out of sync.
+THEMES = {
+    "dark": {
+        "bg": "#0d1117", "edge": "#30363d", "title": "#e6edf3",
+        "text": "#c9d1d9", "dim": "#8b949e", "track": "#21262d",
+    },
+    "light": {
+        "bg": "#ffffff", "edge": "#d0d7de", "title": "#1f2328",
+        "text": "#1f2328", "dim": "#59636e", "track": "#eaeef2",
+    },
+}
+
+CSS_BODY = """
   .card  { fill: var(--bg); stroke: var(--edge); }
   .title { font: 600 17px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--title); }
   .sub   { font: 400 11.5px "Segoe UI", Ubuntu, "Helvetica Neue", sans-serif; fill: var(--dim); }
@@ -49,13 +70,19 @@ CSS = """
 """
 
 
+def css(theme):
+    """Custom properties for one theme, prepended to the shared rules."""
+    palette = " ".join(f"--{role}:{hex_};" for role, hex_ in THEMES[theme].items())
+    return f"\n  svg {{ {palette} }}{CSS_BODY}"
+
+
 def esc(text):
     return (
         str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     )
 
 
-def render(data):
+def render(data, theme):
     langs = data["languages"][:TOP_N]
     top = max((lang["repos"] for lang in langs), default=1)
     # 68 above the first row, then the rows, then a bottom margin that matches
@@ -68,7 +95,7 @@ def render(data):
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
         f'viewBox="0 0 {WIDTH} {height}" role="img" '
         f'aria-label="Most used languages, ranked by number of projects">',
-        f"<style>{CSS}</style>",
+        f"<style>{css(theme)}</style>",
         f'<rect class="card" x="0.5" y="0.5" width="{WIDTH - 1}" height="{height - 1}" '
         f'rx="6" stroke-width="1"/>',
         f'<text class="title fade" x="{PAD}" y="34">Most Used Languages</text>',
@@ -108,10 +135,13 @@ def main():
         data = json.load(f)
 
     os.makedirs("cards", exist_ok=True)
-    with open("cards/top-langs.svg", "w") as f:
-        f.write(render(data))
-
-    print(f"wrote cards/top-langs.svg ({len(data['languages'][:TOP_N])} languages)")
+    # Both files every run. Rendering only the changed one would let the two
+    # drift apart silently, and each is ~6 KB.
+    for theme in THEMES:
+        path = f"cards/top-langs-{theme}.svg"
+        with open(path, "w") as f:
+            f.write(render(data, theme))
+        print(f"wrote {path} ({len(data['languages'][:TOP_N])} languages)")
 
 
 if __name__ == "__main__":
