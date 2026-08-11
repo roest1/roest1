@@ -54,33 +54,33 @@
   <text class="meta" x="516" y="177" text-anchor="end">3 repos</text>
 </g>
 <g class="row" style="animation-delay:0.54s">
-  <text class="name" x="24" y="207">C++</text>
+  <text class="name" x="24" y="207">PowerShell</text>
   <rect class="track" x="136" y="198" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="198" width="26.0" height="8" rx="4.0" fill="#f34b7d">
-    <animate attributeName="width" from="0" to="26.0" begin="0.64s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+  <rect x="136" y="198" width="39.0" height="8" rx="4.0" fill="#012456">
+    <animate attributeName="width" from="0" to="39.0" begin="0.64s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
-  <text class="meta" x="516" y="207" text-anchor="end">2 repos</text>
+  <text class="meta" x="516" y="207" text-anchor="end">3 repos</text>
 </g>
 <g class="row" style="animation-delay:0.63s">
-  <text class="name" x="24" y="237">TSQL</text>
+  <text class="name" x="24" y="237">C++</text>
   <rect class="track" x="136" y="228" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="228" width="26.0" height="8" rx="4.0" fill="#e38c00">
+  <rect x="136" y="228" width="26.0" height="8" rx="4.0" fill="#f34b7d">
     <animate attributeName="width" from="0" to="26.0" begin="0.73s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
   <text class="meta" x="516" y="237" text-anchor="end">2 repos</text>
 </g>
 <g class="row" style="animation-delay:0.72s">
-  <text class="name" x="24" y="267">Java</text>
+  <text class="name" x="24" y="267">TSQL</text>
   <rect class="track" x="136" y="258" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="258" width="26.0" height="8" rx="4.0" fill="#b07219">
+  <rect x="136" y="258" width="26.0" height="8" rx="4.0" fill="#e38c00">
     <animate attributeName="width" from="0" to="26.0" begin="0.82s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
   <text class="meta" x="516" y="267" text-anchor="end">2 repos</text>
 </g>
 <g class="row" style="animation-delay:0.81s">
-  <text class="name" x="24" y="297">C</text>
+  <text class="name" x="24" y="297">Java</text>
   <rect class="track" x="136" y="288" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="288" width="26.0" height="8" rx="4.0" fill="#555555">
+  <rect x="136" y="288" width="26.0" height="8" rx="4.0" fill="#b07219">
     <animate attributeName="width" from="0" to="26.0" begin="0.91s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
   <text class="meta" x="516" y="297" text-anchor="end">2 repos</text>
