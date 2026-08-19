@@ -48,10 +48,10 @@
 <g class="row" style="animation-delay:0.45s">
   <text class="name" x="24" y="177">JavaScript</text>
   <rect class="track" x="136" y="168" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="168" width="47.3" height="8" rx="4.0" fill="#f1e05a">
-    <animate attributeName="width" from="0" to="47.3" begin="0.55s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+  <rect x="136" y="168" width="59.1" height="8" rx="4.0" fill="#f1e05a">
+    <animate attributeName="width" from="0" to="59.1" begin="0.55s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
-  <text class="meta" x="516" y="177" text-anchor="end">4 repos</text>
+  <text class="meta" x="516" y="177" text-anchor="end">5 repos</text>
 </g>
 <g class="row" style="animation-delay:0.54s">
   <text class="name" x="24" y="207">PowerShell</text>
