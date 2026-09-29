@@ -20,7 +20,7 @@
 </style>
 <rect class="card" x="0.5" y="0.5" width="539" height="319" rx="6" stroke-width="1"/>
 <text class="title fade" x="24" y="34">Most Used Languages</text>
-<text class="sub fade" x="24" y="54" style="animation-delay:.1s">ranked by projects, not bytes · 30 repos</text>
+<text class="sub fade" x="24" y="54" style="animation-delay:.1s">ranked by projects, not bytes · 31 repos</text>
 <g class="row" style="animation-delay:0.18s">
   <text class="name" x="24" y="87">Python</text>
   <rect class="track" x="136" y="78" width="260" height="8" rx="4.0"/>
@@ -32,18 +32,18 @@
 <g class="row" style="animation-delay:0.27s">
   <text class="name" x="24" y="117">Shell</text>
   <rect class="track" x="136" y="108" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="108" width="70.9" height="8" rx="4.0" fill="#89e051">
-    <animate attributeName="width" from="0" to="70.9" begin="0.37s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+  <rect x="136" y="108" width="82.7" height="8" rx="4.0" fill="#89e051">
+    <animate attributeName="width" from="0" to="82.7" begin="0.37s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
-  <text class="meta" x="516" y="117" text-anchor="end">6 repos</text>
+  <text class="meta" x="516" y="117" text-anchor="end">7 repos</text>
 </g>
 <g class="row" style="animation-delay:0.36s">
   <text class="name" x="24" y="147">TypeScript</text>
   <rect class="track" x="136" y="138" width="260" height="8" rx="4.0"/>
-  <rect x="136" y="138" width="59.1" height="8" rx="4.0" fill="#3178c6">
-    <animate attributeName="width" from="0" to="59.1" begin="0.46s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+  <rect x="136" y="138" width="70.9" height="8" rx="4.0" fill="#3178c6">
+    <animate attributeName="width" from="0" to="70.9" begin="0.46s" dur="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
   </rect>
-  <text class="meta" x="516" y="147" text-anchor="end">5 repos</text>
+  <text class="meta" x="516" y="147" text-anchor="end">6 repos</text>
 </g>
 <g class="row" style="animation-delay:0.45s">
   <text class="name" x="24" y="177">JavaScript</text>
